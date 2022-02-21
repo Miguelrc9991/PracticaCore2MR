@@ -1,0 +1,23 @@
+﻿
+@if (Context.Session.GetString("CARRITO") == null)
+{
+
+
+    <h1 style="color:red">Sin peliculas en el carrito</h1>
+}
+else
+{
+    List<LibrosCarrito> libros = Context.Session.GetObject<List<LibrosCarrito>>("CARRITO");
+    <form method="post">
+        <ul class="list-group">
+            @foreach (LibrosCarrito resum in libros)
+            {
+                <li class="list-group-item list-group-item-info">
+                    @resum.idLibro : @resum.precio €
+                   
+                </li>
+            }
+        </ul>
+        <button class="btn" type="submit">Comprar</button>
+    </form>
+}

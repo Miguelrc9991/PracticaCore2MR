@@ -1,0 +1,17 @@
+﻿@if (Context.Session.GetString("CARRITO") == null)
+{
+    <h1 style="color:red">Sin peliculas en el carrito</h1>
+}
+else
+{
+    List<LibrosCarrito> resumen = Context.Session.GetObject<List<LibrosCarrito>>("CARRITO");
+    <ul class="list-group">
+        @foreach (LibrosCarrito resum in resumen)
+        {
+            <li class="list-group-item list-group-item-info">
+              Id Product:  @resum.idLibro Precio: @resum.precio€
+            </li>
+        }
+    </ul>
+    <a class="btn btn-outline-success" type="button" id="btnComprar" asp-controller="Peliculas" asp-action="ComprarCarrito">Comprar</a>
+}

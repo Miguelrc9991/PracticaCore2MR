@@ -1,0 +1,8 @@
+﻿<h1>Perfil usuario</h1>
+<img src="~/images/@Context.User.FindFirst("Foto").Value" style="width:200px; height:200px"   />
+
+<h2>
+    Nombre: @Context.User.Identity.Name
+</h2>
+<h2> Apellidos: @Context.User.FindFirst("Apellidos").Value</h2>
+<h2> Email: @Context.User.FindFirst("Email").Value</h2>
